@@ -1,0 +1,1329 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* ****************************** VARIABLES image ********************** */
+:root{
+    --light: hsl(252, 30%, 95%);
+    --gray: hsl(252, 30%, 65%);
+    --white: hsl(252, 30%, 100%);
+    --dark: hsl(252, 30%, 17%);
+    --blue:  #3d5aff;
+    --primary: hsl(252, 75%, 60%);
+    --secoundry: hsl(252, 100%, 90%);
+    --success: hsl(120, 95%, 65%);
+    --danger: hsl(0, 95%, 65%);
+    --black: hsl(252, 30%, 10%);
+
+    --radius: 2rem;
+    --card-radius: 1rem;
+    --btn-padding: .6rem 2rem;
+    --search-padding: 0.6rem 1rem;
+    --card-padding: 1rem;
+
+    --success: rgb(0, 202, 75);
+    --danger: #f00;
+    --warning: rgb(234, 181, 7);
+
+
+    --padding-1: 1rem;
+    --padding-2: 8px;
+
+    --border-radius-1: 1rem;
+    --border-radius-2: 6px;
+    
+    --main-bg: #ffffff;
+    --second-bg: #fafafb;
+    --txt-color: #455560;
+    --txt-white: #fff;
+    --main-color: #349eff;
+    --second-color: #62b4ff;
+    --box-shadow: rgba(149, 157, 165, .2) 0px 8px 24px;
+
+    --main-bg-light: #ffffff;
+    --second-bg-light: #fafafa;
+    --txt-color-light: #455560;
+    --box-shadow-light: rgba(149, 157, 165, .2) 0px 8px 24px;
+
+    --main-bg-dark: #2d2d2d;
+    --second-bg-dark: #202020;
+    --txt-color-dark: #bbbbbb;
+    --box-shadow-dark: rgba(0, 0, 0, .2) 0px 5px 10px;
+
+    --main-color-blue: #349eff;
+    --second-color-blue: #62b4ff;
+
+    --main-color-red: #fb0b12;
+    --second-color-red: #ff4a6b;
+
+    --main-color-cyan: #10d4d2;
+    --second-color-cyan: #2ae9e6;
+
+    --main-color-green: #019707;
+    --second-color-green: #4caf50;
+
+    --main-color-orange: #d68102;
+    --second-color-orange: #fca11a;
+
+    --sidebar-width: 300px;
+    --transition-cubic: cubic-bezier(0.175, .885, .32, 1.275);
+
+}
+
+/* ****************************** CSS RESET ********************** */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-size: 16px;
+}
+li{
+    list-style: none;
+}
+
+/* ****************************** BASE STYLES ********************** */
+html{
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100vw;
+    background: var(--light);
+    font-family: 'Poppins', sans-serif;
+}
+input,textarea,
+select{
+    background: transparent;
+    padding: .5rem;
+    border: 1px solid var(--gray);
+    outline: none;
+}
+img{
+    height: 100%;
+    object-fit: contain;
+}
+/* ****************************** FONTS ********************** */
+h1, h2, h3{
+    font-size: 1.2em;
+}
+h1,h2,h3,h4{
+    font-weight: 400;
+}
+p,a,li{
+    color: var(--dark);
+}
+/************************************ GENERAL STYLES *******************************************************/
+.ghostwhite{
+    background: ghostwhite;
+}
+.white{
+    background: var(--txt-white);
+    font-weight: 600;
+}
+.primary{
+    color: var(--primary);
+    font-weight: 700;
+}
+.danger{
+    color: var(--danger);
+    font-weight: 600;
+}
+.warning{
+    color: var(--warning);
+    font-weight: 600;
+}
+.success{
+    color: var(--success);
+    font-weight: 600;
+}
+.bg-white{
+    background: var(--txt-white) !important;
+    color: var(--primary) !important;
+}
+.bg-primary{
+    background: var(--primary) !important;
+    color: var(--txt-white) !important;
+}
+.bg-blue{
+    background: var(--blue) !important;
+}
+.bg-success{
+    background: var(--success) !important;
+}
+.bg-danger{
+    background: var(--danger) !important;
+}
+.container{
+    width: 90%;
+    margin: 0 auto;
+}
+
+::-webkit-scrollbar {
+    width: .6em;
+    height: .4em;
+    background: var(--white);
+}
+   
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+   
+::-webkit-scrollbar-thumb {
+    background-color: var(--main-color-blue);
+    outline: none;
+    border-radius: 55px;
+    cursor: pointer;
+}
+.profile-photo{
+    display: block;
+    height: 3rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    overflow: hidden;
+}
+/* ****************************** NAV ********************** */
+nav{
+    background: var(--white);
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    border-bottom: 2px solid var(--light);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+}
+nav .container{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 3rem;
+    position: relative;
+}
+nav .container a{
+    position: absolute;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+}
+nav .container a b{
+    font-size: 1em;
+    color: var(--main-color-cyan);
+}
+nav .container a small{
+    font-size: .9em;
+    color: var(--warning);
+    margin-top: -.5rem;
+}
+nav span{
+    border-radius: 50%;
+    margin-left: .2rem;
+    padding: .5rem;
+}
+/* _______________________________________statistics___________________ */
+.statistics {
+    padding-top: 4.4em;
+    width: 100%;
+}
+.statistics .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: .5em;
+}
+.statistics .container > div{
+    border: 1px solid var(--white);
+    min-width: 300px;
+    min-height: 300px;
+    border-radius: .5rem;
+}
+.statistics .container  .stat-box{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: .1rem;
+    grid-template-rows: repeat(2, 1fr);
+    border: none;
+    /* max-width: 300px; */
+}
+.statistics .container  .stat-box > div{
+    min-height: 10rem;
+    border: 3px solid var(--light);
+    border-radius: 1rem;
+    background: var(--white);
+    margin: 0;
+}
+.statistics .container  .stat-box :nth-child(1){
+    grid-column: 1/2;
+    grid-row: 1/3;
+}
+.statistics .container  .stat-box :nth-child(2){
+    grid-row: 1/2;
+    grid-column: 2/3;
+}
+.statistics .container  .stat-box :nth-child(3){
+    grid-row: 2/3;
+    grid-column: 2/3;
+
+}
+.statistics .container  .stat-box .total-up{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: .5rem;
+}
+.statistics .container  .stat-box .total-up > span{
+    padding: .5rem;
+    font-size: 1em;
+    color: var(--black);
+    margin: 0 10%;
+    display: flex;
+}
+.statistics .container  .stat-box .total-up > span small{
+    font-size: .7rem;
+}
+.statistics .container  .stat-box .total-up > span b{
+    padding: .3rem;
+    border-radius: .5rem;
+    color: var(--warning);
+    font-size: .8rem;
+    display: flex;
+}
+.statistics .container  .stat-box label{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 90%;
+    aspect-ratio: 1/1;
+    margin: 0 auto;
+    margin-top: 1rem;
+    position: relative;
+    background: var(--main-color-blue);
+    color: var(--white);
+}
+.statistics .container .stat-box .total-up label span{
+    font-size: 1rem;
+}
+.statistics .container  .stat-box .total-up label b{
+    font-size: 2rem;
+    font-weight: 700;
+}
+.statistics .container .stat-box .specific-total-up{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: .5rem;
+    background: var(--second-color-green);
+}
+.statistics .container .stat-box .specific-total-up:last-child{
+    background: var(--second-color-orange);
+}
+.statistics .container .stat-box .specific-total-up h3{
+    font-size: 1rem;
+    font-weight: 900;
+    color: var(--white);
+}
+.statistics .container .stat-box .specific-total-up div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+    width: 100%;
+    border-radius: .5rem;
+}
+
+.statistics .container .stat-box .specific-total-up div b{
+    font-size: 3rem;
+    font-weight: 500;
+    color: var(--white);
+}
+.statistics .container .stat-box .specific-total-up div span{
+    font-size: .8rem;
+    border-radius: 50%;
+    margin-left: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    color: var(--white);
+    border: 4px solid var(--white);
+}
+.container .box-title{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 3rem;
+    position: relative;
+    width: calc(100% - 1rem);
+    background: inherit;
+    color: var(--blue);
+    font-size: 1em;
+    border-bottom: 2px solid #eee;
+    margin: 0 .5rem;
+}
+.container .box-title span{
+    padding: .4rem;
+    font-size: 2rem;
+}
+.container .box-title h3{
+    font-weight: 500;
+
+}
+.container .box-title span:nth-child(3){
+    position: absolute;
+    right: .5rem;
+    cursor: pointer;
+    background: var(--main-color-blue);
+    color: var(--white);
+    border-radius: 50%;
+    font-size: 1.5rem;
+}
+.statistics .container .schedule,
+.statistics .container .services{
+    background: var(--white);
+    color: var(--dark);
+}
+.statistics .container .services .service-list{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+.statistics .container .services .service-list label{
+    padding: .5rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 2.5rem;
+}
+.statistics .container .services .service-list label b{
+    display: flex;
+    min-width: 14rem;
+}
+.statistics .container .services .service-list label small{
+    display: flex;
+    min-width: 15rem;
+}
+
+.statistics .container .services .service-list label span{
+    position: absolute;
+    left: 10rem;
+}
+.statistics .container .services .service-list label :nth-child(2){
+    left: 12rem;
+}
+.statistics .container .services .service-list .action-btns{
+    position: absolute;
+    right: 10%;
+    top: 60%;
+    width: 11rem;
+    transform: translateY(-60%);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: .5rem;
+}
+.statistics .container .services .service-list .action-btns :nth-child(1){
+    background: var(--warning);
+}
+.statistics .container .services .service-list .action-btns :nth-child(2){
+    background: var(--main-color-blue);
+}
+.statistics .container .services .service-list .action-btns :nth-child(3){
+    background: var(--success);
+}
+.statistics .container .services .service-list .action-btns span{
+    font-size: 4rem;
+    border-radius: 50%;
+    padding: .5rem;
+    color: var(--white);
+    cursor: pointer;
+}
+.statistics .container .services .service-list .action-btns span:hover{
+    filter: brightness(120%);
+}
+.statistics .container .schedule .schedule_list{
+    display: flex;
+    flex-direction: column;
+}
+.statistics .container .schedule .schedule_list .schedule_item{
+    display: grid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 4.5rem;
+    overflow: hidden;
+}
+.statistics .container .schedule .schedule_list .schedule_item:nth-child(even) .schedule-details{
+    background: ghostwhite;
+}
+.statistics .container .schedule .schedule_list .schedule_item .time{
+    min-width: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.statistics .container .schedule .schedule_list .schedule_item .time b{
+    font-weight: 400;
+    color: var(--gray);
+}
+.statistics .container .schedule .schedule_list .schedule_item .schedule-details{
+    display: flex;
+    align-items: center;
+    padding: .5rem 1rem;
+    border-radius: 1.5rem;
+}
+.statistics .container .schedule .schedule_list .schedule_item .schedule-details small{
+    font-size: .85rem;
+}
+.statistics .container .schedule .schedule_list .schedule_item .schedule-details b{
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--success);
+}
+.statistics .container .schedule .schedule_list .schedule_item .schedule-details .details b select{
+    color: var(--success);
+    padding: 0;
+    border: none;
+}
+.statistics .container .schedule .schedule_list .schedule_item .schedule-details span{
+    padding-left: .5rem;
+    font-size: 2rem;
+    cursor: pointer;
+}
+.statistics .container .schedule .schedule_list .schedule_item .schedule-details .image{
+    min-height: 4rem;
+    max-height: 4rem;
+    min-width: 4rem;
+    max-width: 4rem;
+    overflow: hidden;
+    border-radius: 50%;
+    align-self: center;
+}
+.statistics .container .schedule .schedule_list .schedule_item .schedule-details .image img{
+    height: 4rem;
+    object-fit: contain;
+
+}
+.statistics .container .schedule .schedule_list .schedule_item .schedule-details .details{
+    display: flex;
+    flex-direction: column;
+    padding: .5rem;
+}
+.usage{
+    display: flex;
+    flex-direction: column;
+    margin-top: .5rem;
+}
+.usage .container{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: .5rem;
+}
+.usage .container .reservations{
+    background: var(--white);
+    border-radius: .5rem;
+    padding: .5rem;
+    width: calc(100vw - 2.5rem);
+    overflow: hidden;
+}
+.product_n_employes{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    width: calc(100vw - 2.5rem);
+    overflow: hidden;
+}
+.product_n_employes .employees{
+    background: var(--white);
+    border-radius: .5rem;
+    padding: .5rem;
+    width: inherit;
+
+}
+.product_n_employes .products{
+    background: var(--white);
+    border-radius: .5rem;
+    padding: .5rem;
+    width: inherit;
+}
+.table-wrapper{
+    overflow-y: hidden;
+    overflow-x:auto; 
+    width: calc(100vw - 2.5rem);
+    padding-right: 1rem;
+}
+/* ************************************* TABLE ****************************************** */
+table{
+    width: inherit;
+    border-collapse: collapse;
+    overflow: hidden;
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+    padding: .5rem;
+
+}
+table tr td, 
+table tr th {
+    padding: 0;
+    margin: 0;
+    gap: 0;
+    position: relative;
+}
+table tr th label{
+    width: 9rem;
+}
+table tr td label,
+table tr th label{
+    padding: .5rem;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 300;
+    overflow: hidden !important;
+
+}
+table tr td label.name,
+table tr th label.name{
+    width: 15rem !important;
+}
+table tr th label.price{
+    width: 7rem !important;
+    justify-content: space-between;
+}
+table tr td label.price{
+    justify-content: flex-end;
+}
+table tr th label.counter,
+table tr td label.counter{
+    width: 3.5rem !important;
+    justify-content: center;
+    align-items: center;
+}
+table tr td label.code,
+table tr th label.code{
+    width: 5rem;
+    justify-content: center;
+}
+table tr th label.image,
+table tr td div.image{
+    min-width:4.5rem;
+    max-width:4.5rem;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+table tr td img.preview-image{
+    height: 10rem;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    z-index: -1;
+    opacity: 0;
+}
+table tr td:hover img.preview-image{
+    z-index: 3;
+    opacity: 1;
+}
+table tr td div.image img{
+    height: 3.4rem;
+    object-fit: contain;
+    border-radius: 50%;
+}
+table tr td div.image input{display: none;}
+table tr td div.image span{
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    right: 0;
+    padding: .5rem;
+    background: var(--white);
+    color: var(--dark);
+    border: 1px solid var(--gray);
+    border-radius: 50%;
+    font-size: 1rem;
+}
+table tr td div.image span:hover{
+    background: var(--blue);
+    color: var(--white);
+}
+table tr td .actions{
+    display: flex;
+    justify-content: center;
+}
+table tr td label.action,
+table tr th label.action{
+    width: 6rem;
+    justify-content: center;
+    align-items: center;
+    gap: .2rem;
+}
+table tr td label.action span{
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 1.8rem;
+    aspect-ratio: 1/1;
+    cursor: pointer;
+    color: var(--gray);
+}
+table tr td label.action span:hover{
+    color: var(--black);
+}
+table tr{
+    position: relative !important;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 5rem;
+    overflow: hidden;
+    border-bottom: 1px solid var(--white);
+    z-index: 0;
+}
+table tr.active{
+    background: var(--primary);
+    filter: brightness(120%);
+    color: var(--white);
+    border-bottom: 1px solid var(--white);
+    z-index: 2;
+}
+table tr::before{
+    content: "";
+    position: absolute;
+    left: -.2rem;
+    width: .5rem;
+    top: 30%;
+    bottom: 30%;
+    background-color: transparent;
+    border-radius: .5rem;
+}
+table thead{
+    background: var(--main-color-blue);
+    color: var(--white);
+}
+table tbody tr::after{
+    content: "";
+    position: absolute;
+    right: -.2rem;
+    width: .5rem;
+    top: 30%;
+    bottom: 30%;
+    background-color: transparent;
+    border-radius: .5rem;
+}
+table tbody tr:hover{
+    background: var(--second-color-blue);
+    color: var(--white);
+    cursor: pointer;
+    border-bottom: 1px solid var(--white);
+    z-index: 2;
+}
+table tbody tr:hover label,
+table tbody tr:hover label span{
+    color: var(--white) !important;
+}
+table tbody tr:hover td div.image span{
+    color: var(--dark) !important;
+}
+table tbody tr:hover td div.image span:hover{
+    color: var(--white) !important;
+}
+table tr.active::after,
+table tr.active::before,
+table tbody tr:hover::after,
+table tbody tr:hover::before{
+    background: var(--white);
+}
+table tbody tr td  label input,
+table tbody tr td  label select,
+table tbody tr td  label input[type='text']{
+    width: 100% !important;
+    padding: inherit;
+    background: var(--white);
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    font-size: inherit;
+}
+
+table tr .additional-fields{
+    position: absolute;
+    top: 2.89rem;
+    left: 0;
+    width: 15rem;
+    overflow: hidden;
+    background: var(--primary);
+    display: flex;
+    flex-direction: column;
+    border-bottom-left-radius: var(--card-radius);
+    border-bottom-right-radius: var(--card-radius);
+    height: 0rem;
+    z-index: 3 !important;
+    transition: all 300ms linear;
+    border-radius: var(--card-radius);
+}
+table tr.active .additional-fields,
+table tr:hover .additional-fields{
+    /* height: 15rem; */
+    height: auto;
+}
+table tr .additional-fields label{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    color: var(--white);
+}
+table tr .additional-fields label input{
+    background: transparent;
+    border-bottom: 2px solid var(--white);
+    color: var(--white);
+}
+table tr .additional-fields label textarea{
+    border: 2px solid var(--white);
+    background: transparent;
+    width: 100%;
+    height: 4rem;
+    padding: .5rem;
+}
+table tr .additional-fields label textarea::placeholder,
+table tr .additional-fields label input::placeholder{
+    color: var(--white);
+}
+table tr .additional-fields label input[type = 'file']{
+    display: none;
+}
+table tr .additional-fields label span{
+    font-size: 2rem;
+    position: absolute;
+    top: 41%;
+    left: 60%;
+    transform: translateY(-50%);
+    width: 5rem;
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--white);
+    color: var(--primary) !important;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+table tr.active .additional-fields label span,
+table tr:hover .additional-fields label span{
+    color: var(--primary) !important;
+}
+
+table tr .additional-fields label .image{
+    width: 5rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--white);
+}
+table tr .additional-fields label b{
+    font-weight: 400;
+
+}
+tr:nth-child(even){background-color: #f2f2f2}
+/* ************************************ PAGINATION ************************** */
+.pagination_link{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    height: 3rem;
+    padding: 0 .5rem;
+}
+.pagination_link span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid var(--white);
+    color: var(--dark);
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: .8rem;
+}
+.pagination_link span.hide{
+    display: none;
+    pointer-events: none;
+}
+.pagination_link span.active{
+    background: var(--primary);
+    color: var(--white);
+
+}
+.pagination_link span:hover{
+    background: var(--blue);
+    color: var(--white);
+}
+.bunner{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    background: var(--white);
+    margin-top: 4rem;
+    width: 100vw;
+    background:linear-gradient(to left, rgba(3, 3, 3, 0.1), rgba(3, 3, 3, 0.4)),  url('../images/bg-2.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    overflow: hidden;
+    position: relative;
+    height: 20rem;
+
+    display: flex;
+    justify-content: flex-end;
+}
+.bunner::after{
+    content: "";
+    position: absolute;
+    left: 20%;
+    top: 0%;
+    bottom: 0%;
+    transform: rotate(-15deg) ;
+    width: 150vw;
+    background: rgba(3, 3, 3, 0.6);
+    min-height: 500px;
+    z-index: 0;
+    border-radius: 30%;
+    border: 5px solid white;
+}
+.bunner > div{
+    height: 100%;
+    z-index: 1;
+    padding: .5rem;
+}
+.bunner .intro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    color: var(--white);
+}
+.bunner .intro h1{
+    font-size: 1.5rem;
+    font-weight: 300;
+    text-align: center;
+}
+.bunner .intro h3{
+    font-size: 1.2rem;
+    text-align: center;
+}
+.bunner .intro .action-btn{
+    display: flex;
+    align-items: center;
+    justify-content: baseline;
+    margin-right: 10%;
+    height: 5rem;
+}
+.bunner .intro .action-btn a{
+    padding: .3rem .5rem;
+    color: var(--white);
+    margin-right: .5rem;
+    border: 1px solid var(--white);
+    min-width: 8rem;
+    text-align: center;
+    border-radius: 55px;
+}
+.bunner .intro .image{
+    height: 29rem;
+    aspect-ratio: 1/1;
+    border: 1px solid var(--black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 49% 49% 46% 51% / 72% 68% 33% 29% ;
+    overflow: hidden;
+}
+.bunner-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background: var(--white);
+    padding: 1rem;
+}
+.bunner-text span{
+    display: flex;
+    text-align: center;
+    max-width: 50rem;
+    font-size: 1rem;
+    color: var(--dark);
+    padding: 1rem;
+}
+.service{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    background: var(--white);
+}
+.hairstyles > span,
+.service > span{
+    padding: 1rem;
+    padding-top: 3rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-align: center;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+}
+.service .container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 80%;
+    gap: .5rem;
+}
+.service .container .service-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 20rem;
+    height: 15rem;
+    overflow: hidden;
+    position: relative;
+}
+.service .container .service-box .image{
+    width: 100%;
+    height: 10rem;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-start;
+    border-radius: 1rem;
+}
+.service .container .service-box .image img{
+    width: 100%;
+    object-fit: cover;
+}
+.service .container .service-box .service-details{
+    margin-top: -2rem;
+    border: 1px solid var(--gray);
+    background: var(--white);
+    width: 80%;
+    padding: .5rem;
+    border-radius: .5rem;
+    height: 5rem;
+}
+/* _____________________________________________HAIR STYLES_____________ */
+.hairstyles{
+    width: 100%;
+    position: relative;
+    background: var(--white);
+}
+.hairstyles .container{
+    display: grid;
+    grid-template-columns: 300px auto;
+    gap: .5rem;
+}
+.hairstyles .container aside{
+    display: flex;
+    flex-direction: column;
+    display: none;
+}
+.hairstyles .container aside label{
+    text-transform: uppercase;
+    padding: .5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border-bottom: 3px solid ghostwhite;
+}
+.hairstyles .container aside span{
+    padding: .3rem;
+    margin-left: 1rem;
+    font-size: .9em;
+}
+.hairstyle-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+    padding: .5rem 0;
+    align-self: flex-start;
+}
+.hairstyle-box .card{
+    position: relative;
+    height: 300px;
+    width: calc(100vw - 2rem);
+    background: var(--white);
+    transform-style: preverse-3d;
+    align-self: flex-start;
+    color: var(--dark);
+    transition: all .3s linear;
+    z-index: 1;
+    margin-bottom: 4rem;
+}
+.hairstyle-box .card:hover .cover{
+    border-color: var(--main-color-blue);
+}
+.hairstyle-box .card .cover{
+    position: relative;
+    width: 100%;
+    height: 105%;
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    text-align: center;
+    z-index: 2;
+    transition: 1s var(--transition-cubic);
+    transform-origin: top;
+    border: 2px solid;
+    border-color: var(--light) var(--light) transparent var(--light);
+}
+.hairstyle-box .card .make-appointment{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    align-self: flex-start;
+    padding: .5rem;
+    color: var(--black);
+    border: 2px solid var(--light);
+}
+.hairstyle-box .card .make-appointment:hover{
+    border-color: var(--main-color-blue);
+}
+.hairstyle-box .card .make-appointment h4{
+    font-size: 1rem;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    position: relative;
+    padding: .3rem;
+}
+.hairstyle-box .card .make-appointment h4::before{
+    content: "";
+    position: absolute;
+    bottom: 0rem;
+    left: 30%;
+    right: 30%;
+    padding: .15rem;
+    background: var(--main-color-blue);
+    border-radius: 55px;
+}
+.hairstyle-box .card .make-appointment p{
+    text-align: center;
+    font-size: .9rem;
+}
+
+.hairstyle-box .card .make-appointment input[type="submit"]{
+    margin: 0 auto;
+    display: inline-block;
+    padding: 8px 20px;
+    background: var(--main-color-blue);
+    color: var(--white);
+    margin-top: 2px;
+    letter-spacing: 1px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 500;
+    z-index: 1;
+    border: 1px solid var(--white);
+    transition: transform .5s ease-in-out;
+}
+.inputs{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 3rem;
+    width: 100%;
+    border: 1px solid var(--main-color);
+    margin-top: 10px;
+}
+.inputs > div{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 60% 40%;
+}
+.inputs > div > div{
+    position: relative;
+}
+.inputs label{
+    position: absolute;
+    top: -.8rem;
+    padding: 0 .5rem;
+    left: 1rem;
+    background: linear-gradient(to bottom, rgba(252, 252, 252, 0),rgb(252, 252, 252), rgba(255, 255, 255, 0));
+    z-index: 2;
+    color: var(--black);
+}
+.inputs select,
+.inputs input{
+    display: flex;
+    width: 100%;
+    padding: .5rem .2rem .2rem .2rem;
+    height: 100%;
+    border: 0;
+}
+.hairstyle-box .card .cover > div{
+    width: 100%;
+    height: 60%;
+    z-index: 1;
+    transition: transform .5s ease-in-out;
+}
+.hairstyle-box .card .cover > div img{
+    height: 100%;
+    object-fit: contain;
+}
+.hairstyle-box .card .cover h3{
+    font-weight: 500;
+    margin: 5px 0;
+    z-index: 1;
+    transition: transform .5s ease-in-out;
+}
+.hairstyle-box .card .cover h2{
+    font-weight: 500;
+    font-size: 1.2em;
+    color: var(--danger);
+    z-index: 1;
+    text-shadow: 2px 2px var(--white);
+    transition: transform .5s ease-in-out;
+}
+.hairstyle-box .card .cover a{
+    display: inline-block;
+    padding: 5px 20px;
+    background: var(--main-color-blue);
+    color: var(--white);
+    margin-top: 2px;
+    letter-spacing: 1px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 500;
+    z-index: 1;
+    border: 1px solid var(--white);
+    transition: transform .5s ease-in-out;
+}
+.hairstyle-box .card .cover::before{
+    content: "";
+    position: absolute;
+    width: 3%;
+    height: 150%;
+    background: transparent;
+    transform: rotate(38.5deg);
+    z-index: 0;
+    box-shadow: 0 0 0 10px ghostwhite;
+    transition: all .3s linear;
+}
+.hairstyle-box .card:hover .cover::before{
+    width: 0;
+    box-shadow: 0 0 0 250px var(--main-color-blue);
+    transform: rotate(200deg);
+}
+.hairstyle-box .card:hover {
+    color: var(--white);
+}
+.hairstyle-box .card:hover .cover{
+    color: var(--white);
+    transform: rotateX(-180deg);
+}
+.hairstyle-box .card:hover .cover > div,
+.hairstyle-box .card:hover .cover h3,
+.hairstyle-box .card:hover .cover h2,
+.hairstyle-box .card:hover .cover a{
+    transform: rotateX(-180deg);
+
+}
+@media screen and (min-width: 650px) {
+}
+
+@media screen and (min-width: 960px) {
+    nav{
+        height: 4rem;
+    }
+    nav .container a b{
+        font-size: 1.3em;
+    }
+    nav .container a small{
+        font-size: 1em;
+        color: var(--warning);
+        margin-top: -.5rem;
+    }
+    .statistics .container  .stat-box label{
+        width: unset;
+        height: 50%;
+    }
+
+    .usage .container{
+        display: grid;
+        grid-template-columns: 65% 35%;
+        gap: .5rem;
+    }
+
+    .usage .container .product_n_employes,
+    .usage .container .reservations{
+        width: calc(100% - .2rem);
+    }
+    
+    .table-wrapper{
+        width: inherit;
+        padding-right: 0 !important;
+    }
+    .hairstyles .container aside{
+        display: flex;
+    }
+    .hairstyle-box{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: .5rem;
+        padding: .5rem 0;
+        align-self: flex-start;
+    }
+    .hairstyle-box .card{
+        width: unset;
+    }
+
+
+    .bunner{
+        height: 30rem;
+    }
+
+    .bunner .intro{
+        align-items: flex-end;
+        justify-content: flex-end;
+        margin-right: 10%;
+    }
+    .bunner .intro h1{
+        font-size: 2.5rem;
+    }
+    .bunner .intro h3{
+        font-size: 1.5rem;
+    }
+
+}
+
+@media screen and (min-width: 1200px) {
+}   

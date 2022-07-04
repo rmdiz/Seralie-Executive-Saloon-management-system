@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signin</title>
+
+    <!-- MATERIAL ICON CDN -->
+    <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+    <!-- CUSTOM STYLES -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="signin-signup">
+        <form action="#" class="signin" id="signin-form">
+            <div class="notification_messages">
+                <span class="material-symbols-outlined">close</span>
+            </div>
+            <h3>Seralie Executive <br> Saloon</h3>
+            <h4>Login</h4>
+            <p>Don't have an account? <br> Create your account, it takes less than a minute</p>
+            <div class="input-box">
+                <span class="material-symbols-outlined">person</span>
+                <input type="text" placeholder="Username" id="signin-username">
+                <!-- <span class="material-symbols-outlined validator">done</span> -->
+            </div>
+            <div class="input-box">
+                <span class="material-symbols-outlined">lock</span>
+                <input type="password" placeholder="Password" id="signin-password">
+                <span class="material-symbols-outlined check-pass-code">visibility</span>
+            </div>
+            <div class="additional">
+                <label for="checkb">
+                    <span class="material-symbols-outlined" id="checkBox">check_box_outline_blank</span>
+                    <b>Remember Me</b>
+                    <input type="checkbox" id="checkb">
+                </label>
+                <a href="#">Forgot password?</a>
+            </div>
+            <button type="submit">
+                <b>Signin</b>
+                <span class="material-symbols-outlined">login</span>
+            </button>
+            <p>&copy; Copyright 2022 Seralie Executive Saloon <br> Kisubi Savio Stage, Kampala - Entebbe Road</p>
+        </form>
+    </div>
+
+    <script src="./js/jquery.js"></script>
+    <script type="module" src="./js/app.js"></script>
+
+</body>
+</html>
