@@ -1257,6 +1257,177 @@ tr:nth-child(even){background-color: #f2f2f2}
     transform: rotateX(-180deg);
 
 }
+.latest{
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 12rem;
+    width: 100%;
+    position: relative;
+}
+.title h1{
+    font-weight: 900;
+    font-size: 4rem;
+    color: #7c7c7c;
+}
+.title h3{
+    font-size: 2rem;
+    letter-spacing: 2px;
+    font-size: 500;
+    color: var(--blue);
+}
+.latest .newStyles{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: .5rem;
+    padding: 0 10%;
+}
+.latest .newStyles .styleBox{
+    width: 300px;
+    height: 300px;
+    border: 4px solid ghostwhite;
+    border-radius: 1rem;
+    position: relative;
+    cursor: pointer;
+}
+.latest .newStyles .styleBox > div{
+    position: relative;
+    width: 100%;
+    height: 230px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    z-index: 0;
+    background: ghostwhite;
+}
+.latest .newStyles .styleBox > div img{
+    width: 100%;
+    object-fit: contain;
+    position: absolute;
+    transition: 1s var(--transition-cubic);
+}
+.latest .newStyles .styleBox > div :nth-child(2){
+    transform: scale(0);
+    background: ghostwhite;
+    border-radius: 50%;
+}
+.latest .newStyles .styleBox:hover > div :nth-child(2){
+    transform: scale(1);
+    border-radius: 0;
+}
+.latest .newStyles .styleBox:hover > div :nth-child(1){
+    transform: scale(0);
+    background: ghostwhite;
+    border-radius: 50%;
+}
+.latest .newStyles .styleBox > span{
+    position: absolute;
+    right: 1rem;
+    top: 0;
+    background: var(--danger);
+    color: var(--white);
+    padding: .1rem 1rem;
+    font-size: .95rem;
+    z-index: 2;
+    border-radius: 1rem;
+}
+.latest .newStyles .styleBox > h3,
+.latest .newStyles .styleBox > h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    color: var(--dark);
+}
+.latest .newStyles .styleBox > h2 {
+    font-size: 1.2rem;
+}
+.trending{
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 8%;
+}
+.grid-4-layout{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1rem;
+    height: 30rem;
+    width: 100%;
+    margin: 0 auto;
+}
+.grid-4-layout div:nth-child(1){
+    grid-column: 1/3;
+    grid-row: 1/3;
+    background: rgb(243 231 193);
+}
+.grid-4-layout div:nth-child(2){
+    grid-column: 3/4;
+    grid-row: 1/2;
+    background: #abf8f8;
+}
+.grid-4-layout div:nth-child(3){
+    grid-column: 4/5;
+    grid-row: 1/2;
+    background: rgb(252 194 2 / 46%);
+}
+.grid-4-layout div:nth-child(4){
+    grid-column: 3/5;
+    grid-row: 2/3;
+    background: #ea88cbe0;
+}
+.grid-4-layout .box{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 1rem;
+}
+.grid-4-layout .box img{
+    width: 100%;
+    object-fit: contain;
+    z-index: 0;
+    margin-right: 30%;
+}
+.grid-4-layout .box .trend-title{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    right: 1rem;
+    z-index: 1;
+    border-right: .5rem solid var(--white);
+    border-radius: 1rem;
+    background: transparent;
+    padding-right: .5rem;
+}
+.grid-4-layout .box .trend-title h2,
+.grid-4-layout .box .trend-title h3{
+    font-size: 1.5rem;
+    letter-spacing: 3px;
+    text-align: right;
+    opacity: .5;
+}
+.grid-4-layout .box .trend-title h2{
+    font-size: 2rem;
+    font-weight: 900;
+}
 @media screen and (min-width: 650px) {
 }
 

@@ -137,6 +137,7 @@ const checkSession = () => {
 				window.location.href ='./signin.html';
 			}else{
 				sysData = (Object.keys(sysData).length == 0) ? siteData: sysData;
+				confirmSession(sysData);
 			}
 		}else if(title == 'Signin'){
 			if (siteData) {
@@ -145,5 +146,23 @@ const checkSession = () => {
 			}
 		}
 	}, 1000);
+}
+// CHECK IF SESSION ON CLIENT COMPUTER MURCHES SERVER SIDE SESSION
+const confirmSession = (sysData) => {
+	// GET SERVER SIDE SESSION INFORMATION
+	let response = dataRequest({
+			'action': 'confirmSession',
+			'user_id': sysData.session.user_id
+		}, 'sessionConfirmation');
+	response.always((data) => {
+		/** IF SESSION DATA IN LOCAL STORAGE DOEN'T MUCH 
+		 * WITH SESSION DATA AT THE SERVER THEN REDIRECT THE USER 
+		 * TO SIGN IN PAGE AND CLEAR LOCAL SESSION STORAGE
+		 **/
+		if(sysData.sessionConfirmation.user_id !== sysData.session.user_id){
+			window.localStorage.removeItem('sys.seralie.MS');
+			window.location.href = "./signin.html";
+		}
+	});
 }
 export { getPageTitle, setPageTitle, sysData, dataRequest, checkSession, generateOptions, addComma, removeComma, deliverNotification, removeNotification, preloader, removeElement, updateSiteData }

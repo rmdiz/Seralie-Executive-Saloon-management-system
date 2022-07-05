@@ -28,6 +28,7 @@ class Auth extends Utils {
 		if($num > 0){
 			if (password_verify($post['password'], $result['password'])) {
 				$_SESSION['user_id'] = $result['user_id'];
+				$session_id = $_SESSION['user_id'];
 				$_SESSION['rememberMe'] = $post['rememberMe'];
 				// SEVER SESION DATA
 				$_SESSION["address"] = $result['address'];

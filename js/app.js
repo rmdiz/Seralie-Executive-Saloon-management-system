@@ -55,8 +55,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
 					// SET USER IMAGE IN THE NAVIGATION
 					document.querySelector('.profile-photo img').setAttribute('src', `./images/${sysData.session.image}`);
+
+					// LOGOUT
+					document.querySelector('.logout-btn').addEventListener('click', () => {
+						let user_id = sysData.session.user_id;
+						// GET SERVER SIDE SESSION INFORMATION
+						let response = dataRequest({
+								'action': 'logout',
+								'user_id': user_id
+							}, 'logout');
+						response.always((data) => {
+							if(data){
+								window.localStorage.removeItem('sys.seralie.MS');
+							}
+						});
+					});
 				}
+
+				response = dataRequest({
+					'action': 'sms',
+				}, 'sms');
+				response.always((data) => {
+					console.log(data);
+				});
 			}, 1000);
+
 		break;
 	}
 

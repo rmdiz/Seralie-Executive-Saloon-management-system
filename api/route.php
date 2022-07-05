@@ -15,6 +15,15 @@
 		case 'authenticate':
 			$user_details = $authController->authenticate($_POST);
         break;
+		case 'confirmSession':
+			echo json_encode($_SESSION);
+		break;
+		case 'logout':
+			echo json_encode(session_destroy());
+		break;
+		case 'sms':
+			echo json_encode(mail( '0705314188@mwambalarogers210.com', '', 'This was sent with PHP.' ) );
+		break;
     }
 
 ?>
